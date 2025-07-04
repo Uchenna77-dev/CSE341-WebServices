@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const mongodb = require('./db/connect');
 const professionalRoutes = require('./routes/professional');
+const contactRoutes = require('./routes/contact');
     
 const port = 8080
 
@@ -18,6 +19,9 @@ app.use((req, res, next) => {
   next();
   })
 app.use('/professional', professionalRoutes);
+
+app.use('/contact', contactRoutes);
+
 
 mongodb.initDb((err, mongodb) => {
   if (err) {

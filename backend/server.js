@@ -7,21 +7,24 @@ const MongoClient = require('mongodb').MongoClient;
 const mongodb = require('./db/connect');
 const professionalRoutes = require('./routes/professional');
 const contactRoutes = require('./routes/contact');
+const swaggerUi = require('swagger-ui-express');
+const swaggerFile = require('./swagger.json');
+
     
-const port = 8080
+const port = 8000
 
-app.use('/', require('./routes'));
-app.use(express.static(path.join(__dirname, '../frontend')));
-
-app.use(bodyParser.json())
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  next();
+app
+  .use(bodyParser.json())
+  .use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  next()
   })
-app.use('/professional', professionalRoutes);
-
-app.use('/contact', contactRoutes);
-
+  .use(express.static(path.join(__dirname, '../frontend')))
+  .use('/professional', professionalRoutes)
+  .use('/contact', contactRoutes)
+  .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile))
+  .use('/', require('./routes'))
+  
 
 mongodb.initDb((err, mongodb) => {
   if (err) {

@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const contactController = require('../controllers/contact');
+const validation = require('../middleware/validate');
 
 // GET all contacts
 router.get('/', contactController.getAllContacts);
@@ -36,7 +37,7 @@ router.get('/:id', contactController.getContactById);
  */
 
 // POST - create new contact
-router.post('/', contactController.createContact);
+router.post('/', validation.saveContact, contactController.createContact);
 /**
  * @swagger
  * /:
@@ -71,7 +72,7 @@ router.post('/', contactController.createContact);
  */
 
 // PUT - update contact
-router.put('/:id', contactController.updateContact);
+router.put('/:id', validation.saveContact, contactController.updateContact);
 /**
  * @swagger
  * /{id}:

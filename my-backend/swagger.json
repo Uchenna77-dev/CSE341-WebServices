@@ -5,7 +5,7 @@
     "description": "API documentation for Vehicles routes",
     "version": "1.0.0"
   },
-  "host": "https://cse341-webservices-v101.onrender.com",
+  "host": "https://cse341-webservices-1.onrender.com",
   "basePath": "/",
   "schemes": ["https"],
   "paths": {

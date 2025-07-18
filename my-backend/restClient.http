@@ -1,0 +1,81 @@
+### Home page
+GET http://localhost:7000
+
+### Get All Cars
+GET http://localhost:7000/cars
+
+### Get Cars by ID
+GET http://localhost:7000/cars/687a40e897972378cc612c4d
+
+
+### Create Car
+POST http://localhost:7000/cars
+Content-Type: application/json
+
+{
+    "make":"Mercedes",
+    "model":"C-class",
+    "year": 2022,
+    "color":"black",
+    "price":28000,
+    "engineType":"3.5L v6",
+    "countryOfManufacture":"Germany"
+}
+
+
+### Update Car
+PUT http://localhost:7000/cars/687a40e897972378cc612c4d
+Content-Type: application/json
+
+{ 
+"make":"Toyota",
+"model":"Corolla",
+"year": 2021,
+"color":"Silver",
+"price":15000,
+"engineType":"1.8L I4",
+"countryOfManufacture":"Japan"
+}
+
+### Delete Car
+DELETE http://localhost:7000/cars/
+
+
+### MotoBikes
+
+### Get All MotoBike
+GET http://localhost:7000/motoBikes
+
+### Get MotoBike by ID
+GET http://localhost:7000/motoBikes/687a40d897972378cc612c48
+
+
+### Create MotoBike
+POST http://localhost:7000/motoBikes
+Content-Type: application/json
+
+{
+    "make":"Honda",
+    "model":"CBR500R",
+    "year": 2023,
+    "engineType":"Parallel Twin",
+    "countryOfManufacture":"Japan"
+}
+
+
+### Update MotoBike
+PUT http://localhost:7000/motoBikes/687a40d897972378cc612c48
+Content-Type: application/json
+
+{ 
+
+    "make":"Honda",
+    "model":"CBR500R",
+    "year": 2025,
+    "engineType":"Twin Cam",
+    "countryOfManufacture":"Japan"
+
+}
+
+### Delete MotoBike
+DELETE http://localhost:7000/motoBikes/

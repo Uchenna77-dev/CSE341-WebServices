@@ -7,6 +7,12 @@ GET http://localhost:7000/cars
 ### Get Cars by ID
 GET http://localhost:7000/cars/687a40e897972378cc612c4d
 
+### Login
+GET http://localhost:7000/login
+
+### Logout
+GET http://localhost:7000/logout
+
 
 ### Create Car
 POST http://localhost:7000/cars
@@ -14,27 +20,27 @@ Content-Type: application/json
 
 {
     "make":"Mercedes",
-    "model":"C-class",
-    "year": 2022,
-    "color":"black",
+    "model":"S-class",
+    "year": 2024,
+    "color":"dark-green",
     "price":28000,
-    "engineType":"3.5L v6",
+    "engineType":"4.0L V8",
     "countryOfManufacture":"Germany"
 }
 
 
 ### Update Car
-PUT http://localhost:7000/cars/687a40e897972378cc612c4d
+PUT http://localhost:7000/cars/687a40e897972378cc612c51
 Content-Type: application/json
 
 { 
-"make":"Toyota",
-"model":"Corolla",
-"year": 2021,
-"color":"Silver",
-"price":15000,
-"engineType":"1.8L I4",
-"countryOfManufacture":"Japan"
+    "make": "Hyundai",
+    "model": "Acent",
+    "year": 2024,
+    "color": "Brown",
+    "price": 17000,
+    "engineType": "2.0L I4",
+    "countryOfManufacture": "South Korea"
 }
 
 ### Delete Car

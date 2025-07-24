@@ -24,9 +24,9 @@ app
   resave: false,
   saveUninitialized: true,
   cookie: {
+    secure: process.env.NODE_ENV === 'production', // true in production
     httpOnly: true,
-    secure: true, // set to true in production with HTTPS
-    sameSite: 'lax'
+    sameSite: 'none'
   }
   }))
   // This is the basic express session initialization

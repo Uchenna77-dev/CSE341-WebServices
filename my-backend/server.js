@@ -17,6 +17,9 @@ const cors = require('cors');
     
 const port = 7000
 
+// Required for secure cookies on Render
+app.set('trust proxy', 1);
+
 app
   .use(bodyParser.json())
   .use(session({
@@ -33,21 +36,7 @@ app
   .use(passport.initialize())
   // Init passport for every route calls
   .use(passport.session())
-  // Allows all passport to use express-session
-  // .use((req, res, next) => {
-  // res.setHeader('Access-Control-Allow-Origin', '*')
-  // res.setHeader(
-  //   'Access-Control-Allow-Header',
-  //   'Origin, X-Requested-Width, Content-Type, Accept, Z-Key, Authorization'
-  // );
-  // res.setHeader(
-  //   'Access-Control-Allow-Methods',
-  //   'GET, POST, PUT, PATCH, OPTIONS, DELETE'
-  // );
-  // next()
-  // })
-  //.use(cors({methods: ['GET, POST, PUT, UPDATE, DELETE, PATCH']}))
-  //.use(cors({origin: 'http://localhost:7000', credentials: true}))
+  
   .use(cors({
   origin: 'https://cse341-webservices-1.onrender.com',
   credentials: true,
@@ -65,13 +54,7 @@ app
     }
   }
 }))
-  //.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile 
-  //   {
-  // swaggerOptions: {
-  //   withCredentials: true
-  // }
-  // }
-  //))
+
   .use('/', Routes)
 
 

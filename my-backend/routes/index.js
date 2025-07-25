@@ -10,7 +10,6 @@ router.get('/login', (req, res) => {
   } else {
     // Redirect to GitHub for login
     res.redirect('/auth/github');
-    // ❌ Don't send anything else after res.redirect
   }
 });
 
